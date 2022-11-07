@@ -1,7 +1,7 @@
 import { Box, Button, TextField } from "@mui/material";
 import { useState } from "react";
 import { loginUser } from "../config/firebasemethods";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
@@ -46,7 +46,7 @@ function Login() {
           />
         </Box>
         <Box>
-          <Button variant="contained" disabled={isLoading} onClick={login}>
+          <Button disabled={isLoading} onClick={login} variant="contained">
             {isLoading ? <CircularProgress /> : "Login"}
           </Button>
         </Box>

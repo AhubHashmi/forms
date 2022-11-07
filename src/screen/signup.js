@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { signUpUser } from "../config/firebasemethods";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import { useNavigate } from "react-router-dom";
 
 function Signup() {
@@ -15,8 +15,8 @@ function Signup() {
     signUpUser({
       email,
       password,
-      userName: "Muhammad Ahub Hashmi",
-      contact: "03350100102",
+      userName: "Abdul Basit Ahmed",
+      contact: "31234632",
     })
       .then((success) => {
         setLoader(false);
