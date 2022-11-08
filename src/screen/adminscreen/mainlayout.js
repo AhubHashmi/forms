@@ -31,6 +31,7 @@ import Form from "../formcontrol";
 import Profile from "../studentprofile";
 import Trainerform from "./trainerform";
 import Trainerlist from "./trainerlist";
+import CustomizedTables from "../studentprofile";
 
 const drawerWidth = 240;
 

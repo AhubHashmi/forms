@@ -9,6 +9,7 @@ import Login from "../screen/login";
 import RegitsrationForm from "../screen/registration";
 import Result from "../screen/result";
 import Signup from "../screen/signup";
+import CustomizedTables from "../screen/studentprofile";
 import Profile from "../screen/studentprofile";
 import StudentList from "../screen/students";
 function AppRouter() {
