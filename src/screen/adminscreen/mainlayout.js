@@ -24,14 +24,13 @@ import RegitsrationForm from "../registration";
 import Result from "../result";
 import Home from "../home";
 import Signup from "../signup";
-// import Login from "../login";
 import StudentList from "../students";
 import Courses from "./courselist";
 import Form from "../formcontrol";
-import Profile from "../studentprofile";
 import Trainerform from "./trainerform";
 import Trainerlist from "./trainerlist";
-import CustomizedTables from "../studentprofile";
+import Countries from "./countries";
+import Cities from "./cities";
 
 const drawerWidth = 240;
 
@@ -87,10 +86,10 @@ function MainLyout(props) {
       displayName: "Form Control",
       routeName: "formc",
     },
-    {
-      displayName: "Student Profile",
-      routeName: "profile",
-    },
+    // {
+    //   displayName: "Student Profile",
+    //   routeName: "profile",
+    // },
     {
       displayName: "Trainer Registration Form",
       routeName: "tform",
@@ -98,6 +97,14 @@ function MainLyout(props) {
     {
       displayName: "Trainers List",
       routeName: "tlist",
+    },
+    {
+      displayName: "Country",
+      routeName: "countries",
+    },
+    {
+      displayName: "Cities",
+      routeName: "cities",
     },
   ]);
   const navigate = useNavigate();
@@ -212,13 +219,13 @@ function MainLyout(props) {
           <Route path="result" element={<Result />} />
           <Route path="home" element={<Home />} />
           <Route path="signup" element={<Signup />} />
-          {/* <Route path="login" element={<Login />} /> */}
           <Route path="stdlist" element={<StudentList />} />
           <Route path="courselist" element={<Courses />} />
           <Route path="formc" element={<Form />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="tform" element={<Trainerform />} />
           <Route path="tlist" element={<Trainerlist />} />
+          <Route path="countries" element={<Countries />} />
+          <Route path="cities" element={<Cities />} />
         </Routes>
       </Box>
     </Box>

@@ -7,7 +7,7 @@ import Checkbox from "@mui/material/Checkbox";
 
 function Quiz() {
   const [isCreateQuiz, setIsCreateQuiz] = useState(false);
-  const [optionsArr, setOptionsArr] = useState(["Option 1"]);
+  const [optionsArr, setOptionsArr] = useState([]);
   const [questions, setQuestions] = useState([]);
   const [model, setModel] = useState({});
   const [question, setQuestion] = useState({});
@@ -29,6 +29,7 @@ function Quiz() {
   ];
 
   let createQuiz = () => {
+    console.log(model);
     setIsCreateQuiz(true);
   };
   let fillModel = (key, val) => {
@@ -36,7 +37,19 @@ function Quiz() {
     setModel({ ...model });
   };
   let addOption = () => {
-    setOptionsArr([...optionsArr, option]);
+    setOptionsArr([...optionsArr, {value : option}]);
+  };
+  let submitQuestion = () => {
+    question.options = optionsArr.map((x) => x.value);
+    question.correctAns = optionsArr.find((x) => x.isChecked).value;
+
+    console.log(question);
+    setQuestions(...questions, question);
+  };
+
+  let lockQuiz = () => {
+    model.questionsArray = questions;
+    console.log(model);
   };
 
   return (
@@ -77,6 +90,24 @@ function Quiz() {
                 />
               </Box>
             </Grid>
+            <Grid md={3} item>
+              <Box sx={{ padding: 2 }}>
+              <SMInput
+                  onChange={(e) => fillModel("marks", e.target.value)}
+                  disabled={isCreateQuiz}
+                  label="Quiz Marks"
+                />
+              </Box>
+            </Grid>
+            <Grid md={3} item>
+              <Box sx={{ padding: 2 }}>
+              <SMInput
+                  onChange={(e) => fillModel("securityKey", e.target.value)}
+                  disabled={isCreateQuiz}
+                  label="Security Key"
+                />
+              </Box>
+            </Grid>
             <Grid md={12} item>
               <Box>
                 <SMButton onClick={createQuiz} label="Create Quiz" />
@@ -99,7 +130,7 @@ function Quiz() {
                     <Checkbox
                       onChange={(e) => (x.isChecked = e.target.value)}
                     />{" "}
-                    <Typography key={i}>{x}</Typography>
+                    <Typography key={i}>{x.value}</Typography>
                   </>
                 ))}
               </Grid>
@@ -114,8 +145,8 @@ function Quiz() {
                 <SMButton onClick={addOption} label="add" />
               </Grid>
               <Grid md={12} item>
-                <SMButton label="Submit Question" />
-                <SMButton label="Lock Quiz" />
+                <SMButton onClick={submitQuestion} label="Submit Question" />
+                <SMButton onClick={lockQuiz} label="Lock Quiz" />
               </Grid>
             </Grid>
           )}

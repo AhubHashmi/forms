@@ -9,8 +9,6 @@ import Login from "../screen/login";
 import RegitsrationForm from "../screen/registration";
 import Result from "../screen/result";
 import Signup from "../screen/signup";
-import CustomizedTables from "../screen/studentprofile";
-import Profile from "../screen/studentprofile";
 import StudentList from "../screen/students";
 function AppRouter() {
   return (
@@ -29,7 +27,6 @@ function AppRouter() {
           <Route path="stdlist" element={<StudentList />} />
           <Route path="courselist" element={<Courses />} />
           <Route path="formc" element={<Form />} />
-          <Route path="profile" element={<Profile />} />
           <Route path="tform" element={<Trainerform />} />
           <Route path="tlist" element={<Trainerlist />} />
         </Routes>

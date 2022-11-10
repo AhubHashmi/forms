@@ -1,6 +1,8 @@
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import { useEffect, useState } from "react";
+import { getData } from "../firebasemethods";
 
 export default function SMSelect(props) {
   const {
@@ -11,7 +13,24 @@ export default function SMSelect(props) {
     required,
     displayField,
     valueField,
+    nodeName,
   } = props;
+
+  const [dtSource, setDtSource] = useState(datasource);
+
+  let getNodeData = () => {
+    if (nodeName) {
+      getData(nodeName)
+        .then((res) => {
+          setDtSource(res);
+        })
+        .catch((err) => { });
+    }
+  };
+  useEffect(() => {
+    getNodeData();
+  }, []);
+
   return (
     <>
       <InputLabel id="demo-simple-select-label">{label}</InputLabel>
@@ -27,10 +46,10 @@ export default function SMSelect(props) {
       >
         {datasource && datasource.length > 0
           ? datasource.map((x, i) => (
-              <MenuItem key={i} value={x[valueField ? valueField : "id"]}>
-                {x[displayField ? displayField : "fullName"]}
-              </MenuItem>
-            ))
+            <MenuItem key={i} value={x[valueField ? valueField : "id"]}>
+              {x[displayField ? displayField : "fullName"]}
+            </MenuItem>
+          ))
           : null}
       </Select>
     </>
