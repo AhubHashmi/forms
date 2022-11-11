@@ -77,6 +77,7 @@ function Cities() {
                 <Container>
                     <SMGrid
                         datasource={citiesList}
+                        onRowClick={(e) => console.log(e)}
                         Cols={[
                             {
                                 key: "id",

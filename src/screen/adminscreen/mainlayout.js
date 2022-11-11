@@ -58,18 +58,18 @@ function MainLyout(props) {
       displayName: "Course List",
       routeName: "courselist",
     },
-    
+
     {
       displayName: "Registration Form",
       routeName: "form",
     },
-    
-    
+
+
     // {
     //   displayName: "Login",
     //   routeName: "login",
     // },
-    
+
     {
       displayName: "Students",
       routeName: "stdlist",
@@ -160,7 +160,7 @@ function MainLyout(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Responsive drawer
+            LMS
           </Typography>
         </Toolbar>
       </AppBar>

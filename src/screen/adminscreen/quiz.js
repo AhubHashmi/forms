@@ -13,20 +13,20 @@ function Quiz() {
   const [question, setQuestion] = useState({});
   const [option, setOption] = useState("");
 
-  let arr = [
-    {
-      id: 1,
-      display: "abc",
-    },
-    {
-      id: 2,
-      display: "abc",
-    },
-    {
-      id: 3,
-      display: "abc",
-    },
-  ];
+  // let arr = [
+  //   {
+  //     id: 1,
+  //     display: "abc",
+  //   },
+  //   {
+  //     id: 2,
+  //     display: "abc",
+  //   },
+  //   {
+  //     id: 3,
+  //     display: "abc",
+  //   },
+  // ];
 
   let createQuiz = () => {
     console.log(model);
@@ -37,7 +37,7 @@ function Quiz() {
     setModel({ ...model });
   };
   let addOption = () => {
-    setOptionsArr([...optionsArr, {value : option}]);
+    setOptionsArr([...optionsArr, { value: option }]);
   };
   let submitQuestion = () => {
     question.options = optionsArr.map((x) => x.value);
@@ -92,7 +92,7 @@ function Quiz() {
             </Grid>
             <Grid md={3} item>
               <Box sx={{ padding: 2 }}>
-              <SMInput
+                <SMInput
                   onChange={(e) => fillModel("marks", e.target.value)}
                   disabled={isCreateQuiz}
                   label="Quiz Marks"
@@ -101,7 +101,7 @@ function Quiz() {
             </Grid>
             <Grid md={3} item>
               <Box sx={{ padding: 2 }}>
-              <SMInput
+                <SMInput
                   onChange={(e) => fillModel("securityKey", e.target.value)}
                   disabled={isCreateQuiz}
                   label="Security Key"

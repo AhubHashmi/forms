@@ -9,8 +9,9 @@ import { sendData } from "../config/firebasemethods";
 function Form() {
     const [model, setModel] = useState({});
 
-    const addStudent = () => {
-        sendData(model)
+    const addFC = () => {
+        console.log(model);
+        sendData(model, `formcontrol/`)
             .then((success) => {
                 console.log(success);
             })
@@ -34,7 +35,7 @@ function Form() {
                             required={true}
                             label="Is Form Open"
                             value={model.isFormOpen}
-                            onChange={(e) => fillModel("isFormOpen", e.target.value)}
+                            onChange={(e) => setModel({ ...model, isFormOpen: e.target.value })}
                         />
                     </Grid>
                     <Grid item md={4}>
@@ -77,46 +78,10 @@ function Form() {
                             onChange={(e) => fillModel("dateOfAdmissionEnd", e.target.value)}
                         />
                     </Grid>
-                    {/* <Grid item md={4}>
-                        <SMInput
-                            required={true}
-                            label="CNIC"
-                            value={model.cnic}
-                            onChange={(e) => fillModel("cnic", e.target.value)}
-                        />
-                    </Grid>
-                    <Grid item md={4}>
-                        <SMInput
-                            label="Father Name"
-                            value={model.fatherName}
-                            onChange={(e) => fillModel("fatherName", e.target.value)}
-                        />
-                    </Grid>
-                    <Grid item md={4}>
-                        <SMInput
-                            label="Father CNIC"
-                            value={model.fatherCnic}
-                            onChange={(e) => fillModel("fatherCnic", e.target.value)}
-                        />
-                    </Grid>
-                    <Grid item md={4}>
-                        <SMInput
-                            label="Father Contact"
-                            value={model.fatherContact}
-                            onChange={(e) => fillModel("fatherContact", e.target.value)}
-                        />
-                    </Grid>
-                    <Grid item md={4}>
-                        <SMInput
-                            label="Emergency Contact"
-                            value={model.emergencyContact}
-                            onChange={(e) => fillModel("emergencyContact", e.target.value)}
-                        />
-                    </Grid> */}
                 </Grid>
             </Box>
 
-            <Button variant="contained" onClick={addStudent}>
+            <Button variant="contained" onClick={addFC}>
                 Submit
             </Button>
         </>
