@@ -113,7 +113,9 @@ function Quiz() {
   return (
     <>
       <Box>
-        <Typography variant="h4">Quiz</Typography>
+      <Box sx={{ backgroundColor: "#03045e", padding: 2, margin: 0 }}>
+          <h1 style={{ color: "white" }}>Quiz</h1>
+        </Box>
         <Box>
           <Grid container>
             <Grid md={6} item>

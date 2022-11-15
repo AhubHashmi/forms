@@ -26,7 +26,9 @@ function Form() {
     };
     return (
         <>
-            <h1>Form Control</h1>
+            <Box sx={{ backgroundColor: "#03045e", padding: 2, margin: 0 }}>
+          <h1 style={{ color: "white" }}>Form Control</h1>
+        </Box>
             <Box sx={{ padding: 2 }}>
                 <Grid spacing={2} container>
                     <Grid item md={4}>

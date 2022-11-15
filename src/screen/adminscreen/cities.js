@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { Container } from "@mui/system";
 import { useEffect, useState } from "react";
 import SMButton from "../../config/components/SMButton";
@@ -39,7 +39,9 @@ function Cities() {
     return (
         <>
             <div>
-                <h1>Cities</h1>
+            <Box sx={{ backgroundColor: "#03045e", padding: 2, margin: 0 }}>
+          <h1 style={{ color: "white" }}>Cities</h1>
+        </Box>
                 <Container>
                     <Grid container>
                         <Grid sx={{ padding: 2 }} md={4} item>

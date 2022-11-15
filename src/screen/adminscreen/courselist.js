@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getData } from "../../config/firebasemethods";
 
@@ -15,7 +16,9 @@ function Courses() {
     }, []);
     return (
         <>
-            <h1>Courses</h1>
+            <Box sx={{ backgroundColor: "#03045e", padding: 2, margin: 0 }}>
+          <h1 style={{ color: "white" }}>Courses</h1>
+        </Box>
             <table>
                 <tr>
                     <th>Course Name</th>

@@ -1,5 +1,5 @@
 import { Box, Button, Container, Divider, Grid, Paper, Typography } from "@mui/material";
-// import ahub from '../assets/ahub.jpg'
+import IMAGE from '../assets/ahub.jpg';
 import Avatar from '@mui/material/Avatar';
 import { useEffect, useState } from "react";
 import { getData } from "../config/firebasemethods";
@@ -43,7 +43,7 @@ function StudentProfile() {
                                         >
                                             <Avatar
                                                 alt="Remy Sharp"
-                                                src="https://pps.whatsapp.net/v/t61.24694-24/250264166_121030433676142_1689544311100394883_n.jpg?ccb=11-4&oh=01_AdQDEENZ3vN-PlQQLd3KJhnF9yJb_733EdK--n7sqcrRAw&oe=637DE01E"
+                                                src={IMAGE}
                                                 sx={{ width: 100, height: 100 }}
                                             />
                                         </Box>

@@ -16,58 +16,58 @@ function CreateResult() {
       result: "Pass",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC101",
+      name: "DEF",
+      marks: 70,
+      rollNum: "DEF101",
       result: "Pass",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC102",
+      name: "GHI",
+      marks: 60,
+      rollNum: "GHI102",
       result: "Pass",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC103",
+      name: "JKL",
+      marks: 50,
+      rollNum: "JKL103",
       result: "Pass",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC104",
+      name: "MNO",
+      marks: 40,
+      rollNum: "MNO104",
       result: "Pass",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC105",
-      result: "Pass",
+      name: "PQR",
+      marks: 30,
+      rollNum: "PQR105",
+      result: "Fail",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC106",
-      result: "Pass",
+      name: "STU",
+      marks: 30,
+      rollNum: "STU106",
+      result: "Fail",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC107",
-      result: "Pass",
+      name: "VWX",
+      marks: 20,
+      rollNum: "VWX107",
+      result: "Fail",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC108",
-      result: "Pass",
+      name: "YZZ",
+      marks: 10,
+      rollNum: "YZZ108",
+      result: "Fail",
     },
     {
-      name: "ABC",
-      marks: 80,
-      rollNum: "ABC109",
-      result: "Pass",
+      name: "ZZZ",
+      marks: 0,
+      rollNum: "ZZZ109",
+      result: "Fail",
     },
   ]);
   const [resultTableData, setResultTableData] = useState([]);
@@ -106,7 +106,9 @@ function CreateResult() {
 
   return (
     <>
-      <h1>Create Result</h1>
+      <Box sx={{ backgroundColor: "#03045e", padding: 2, margin: 0 }}>
+          <h1 style={{ color: "white" }}>Create Result</h1>
+        </Box>
       <Box sx={{ padding: 2 }}>
         <Grid container>
           <Grid md={6} item>

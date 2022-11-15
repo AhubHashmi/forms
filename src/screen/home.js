@@ -60,7 +60,9 @@ function Home() {
     </>
   ) : (
     <>
-      <h1>Registration Form</h1>
+      <Box sx={{ backgroundColor: "#03045e", padding: 2, margin: 0 }}>
+        <h1 style={{ color: "white" }}>HOME</h1>
+      </Box>
       <Box sx={{ padding: 2 }}>
         <Grid spacing={2} container>
           <Grid item md={4}>
