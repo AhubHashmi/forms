@@ -68,3 +68,12 @@ table th {
 .rowHover:hover {
   background-color: rgb(80, 80 ,80);
 }
+
+:root {
+  --primary: #023047;
+  --light: #e3d5ca;
+}
+
+.bglight {
+  background-color: var(--light);
+}

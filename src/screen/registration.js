@@ -108,6 +108,7 @@ function RegitsrationForm() {
                 <SMSelect
                   required={true}
                   label="Course"
+                  value={model.course}
                   onChange={(e) => fillModel('course', e.target.value)}
                   datasource={[
                     {

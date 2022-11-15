@@ -1,9 +1,11 @@
-import { Box, Grid, Typography } from "@mui/material";
-import { useState } from "react";
+import { Box, Container, Grid, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import SMButton from "../../config/components/SMButton";
 import SMInput from "../../config/components/SMInput";
 import SMSelect from "../../config/components/SMSelect";
 import Checkbox from "@mui/material/Checkbox";
+import { getData, sendData } from "../../config/firebasemethods";
+import SMGrid from "../../config/components/SMGrid";
 
 function Quiz() {
   const [isCreateQuiz, setIsCreateQuiz] = useState(false);
@@ -12,6 +14,32 @@ function Quiz() {
   const [model, setModel] = useState({});
   const [question, setQuestion] = useState({});
   const [option, setOption] = useState("");
+  const [quizList, setQuizList] = useState([]);
+
+  let saveQuiz = () => {
+    console.log(question);
+    sendData(question, "quiz")
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  let getQuizData = () => {
+    getData("quiz")
+      .then((res) => {
+        setQuizList(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getQuizData();
+  }, []);
 
   // let arr = [
   //   {
@@ -27,6 +55,36 @@ function Quiz() {
   //     display: "abc",
   //   },
   // ];
+
+  let arr = [
+    {
+      questionName: 'Question Name',
+      duration: 30,
+      marks: 50,
+      questions: [
+        {
+          question: 'HTML Stands For',
+          options: ['HyperTextMarkupLanguage', 'HyperTextMakeupLanguage', 'HoTMaiL'],
+          correctAnswer: 'HyperTextMarkupLanguage'
+        },
+        {
+          question: 'CSS Stands For',
+          options: ['CascadingStyleSheet', 'CustomStyleSheet', 'CustomerSupportService'],
+          correctAnswer: 'CascadingStyleSheet'
+        },
+        {
+          question: 'JS Stands For',
+          options: ['JavaStyle', 'JavaScript', 'JavaSheet'],
+          correctAnswer: 'JavaScript'
+        },
+        {
+          question: 'React is a _______ of JS',
+          options: ['Framework', 'Reaction', 'Library'],
+          correctAnswer: 'Library'
+        },
+      ]
+    },
+  ];
 
   let createQuiz = () => {
     console.log(model);
@@ -145,11 +203,27 @@ function Quiz() {
                 <SMButton onClick={addOption} label="add" />
               </Grid>
               <Grid md={12} item>
-                <SMButton onClick={submitQuestion} label="Submit Question" />
+                <SMButton onClick={saveQuiz} label="Submit Question" />
                 <SMButton onClick={lockQuiz} label="Lock Quiz" />
               </Grid>
             </Grid>
           )}
+          <Container>
+            <SMGrid
+              datasource={quizList}
+              onRowClick={(e) => console.log(e)}
+              Cols={[
+                {
+                  key: "id",
+                  displayName: "Id",
+                },
+                {
+                  key: "question",
+                  displayName: "Question",
+                },
+              ]}
+            />
+          </Container>
         </Box>
       </Box>
     </>

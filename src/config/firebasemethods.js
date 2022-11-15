@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 import {
   getDatabase,
@@ -148,4 +149,16 @@ let getData = (nodeName, id) => {
   });
 };
 
-export { signUpUser, loginUser, checkUser, sendData, getData };
+let logoutUser = () => {
+  return new Promise((resolve, reject) => {
+    signOut(auth)
+      .then(() => {
+        resolve("Sign Out Successfully");
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
+};
+
+export { signUpUser, loginUser, checkUser, sendData, getData, logoutUser};

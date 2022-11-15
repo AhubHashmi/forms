@@ -9,6 +9,7 @@ import Login from "../screen/login";
 import RegitsrationForm from "../screen/registration";
 import Result from "../screen/result";
 import Signup from "../screen/signup";
+import StudentProfile from "../screen/studentProfile";
 import StudentList from "../screen/students";
 function AppRouter() {
   return (
@@ -29,6 +30,7 @@ function AppRouter() {
           <Route path="formc" element={<Form />} />
           <Route path="tform" element={<Trainerform />} />
           <Route path="tlist" element={<Trainerlist />} />
+          <Route path="profile/:id" element={<StudentProfile />} />
         </Routes>
       </Router>
     </>

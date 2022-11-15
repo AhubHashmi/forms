@@ -31,11 +31,25 @@ import Trainerform from "./trainerform";
 import Trainerlist from "./trainerlist";
 import Countries from "./countries";
 import Cities from "./cities";
+import { logoutUser } from "../../config/firebasemethods";
+import { Menu, MenuItem } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
+import StudentProfile from "../studentProfile";
 
 const drawerWidth = 240;
 
 function MainLyout(props) {
   const { window } = props;
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [menuLinks, setMenuLinks] = React.useState([
     {
@@ -106,6 +120,10 @@ function MainLyout(props) {
       displayName: "Cities",
       routeName: "cities",
     },
+    {
+      displayName: "Student Profile",
+      routeName: "profile",
+    },
   ]);
   const navigate = useNavigate();
 
@@ -139,6 +157,16 @@ function MainLyout(props) {
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
+  const logout = () => {
+    logoutUser()
+      .then(() => {
+        navigate("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -159,9 +187,38 @@ function MainLyout(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" style={{flexGrow: 1, display: "flex", justifyContent: "space-between", fontSize: 50}}>
             LMS
           </Typography>
+          <div>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={() => setAnchorEl(!anchorEl)}
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorEl}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorEl)}
+              onClose={() => setAnchorEl(!anchorEl)}
+            >
+              <MenuItem onClick={logout}>Logout</MenuItem>
+            </Menu>
+          </div>
         </Toolbar>
       </AppBar>
       <Box
@@ -226,6 +283,7 @@ function MainLyout(props) {
           <Route path="tlist" element={<Trainerlist />} />
           <Route path="countries" element={<Countries />} />
           <Route path="cities" element={<Cities />} />
+          <Route path="profile" element={<StudentProfile />} />
         </Routes>
       </Box>
     </Box>

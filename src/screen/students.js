@@ -84,7 +84,7 @@ export default function CustomizedTables() {
   return (
     <TableContainer component={Paper}>
       <div className='bgDark'>
-        <h1>Students Profile</h1>
+        <h1>Students</h1>
       </div>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
