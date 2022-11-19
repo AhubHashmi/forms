@@ -30,7 +30,7 @@ function Login() {
     <>
       <Box
         sx={{
-          height: "100vh",
+          height: "50vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -40,7 +40,7 @@ function Login() {
         <Paper sx={{ padding: 2 }}>
           <h1>Login</h1>
           <Box>
-            <Box>
+            <Box sx={{ padding: 2 }}>
               <TextField
                 label="Email"
                 variant="standard"

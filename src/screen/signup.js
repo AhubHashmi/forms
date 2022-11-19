@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, Paper, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { signUpUser } from "../config/firebasemethods";
@@ -30,27 +30,41 @@ function Signup() {
   };
   return (
     <>
-      <h1>Signup</h1>
-      <Box>
-        <Box>
-          <TextField
-            label="Email"
-            onChange={(e) => setEmail(e.target.value)}
-            variant="standard"
-          />
-        </Box>
-        <Box>
-          <TextField
-            label="Password"
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-            variant="standard"
-          />
-        </Box>
+      <Box
+        sx={{
+          height: "50vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+        className="bgLight"
+      >
+        <Paper sx={{ padding: 2 }}>
+          <h1>Signup</h1>
+          <Box>
+            <Box>
+              <TextField
+                label="Email"
+                onChange={(e) => setEmail(e.target.value)}
+                variant="standard"
+              />
+            </Box>
+            <Box>
+              <TextField
+                label="Password"
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                variant="standard"
+              />
+            </Box>
+            <Box sx={{ padding: 2 }}>
+              <Button variant="contained" disabled={isLoading} onClick={signUp}>
+                {isLoading ? <CircularProgress /> : "Sign Up"}{" "}
+              </Button>
+            </Box>
+          </Box>
+        </Paper>
       </Box>
-      <Button variant="contained" disabled={isLoading} onClick={signUp}>
-        {isLoading ? <CircularProgress /> : "Sign Up"}{" "}
-      </Button>
     </>
   );
 }

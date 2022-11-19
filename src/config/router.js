@@ -6,6 +6,7 @@ import Trainerlist from "../screen/adminscreen/trainerlist";
 import Form from "../screen/formcontrol";
 import Home from "../screen/home";
 import Login from "../screen/login";
+import Loginn from "../screen/reduc/Login";
 import RegitsrationForm from "../screen/registration";
 import Result from "../screen/result";
 import Signup from "../screen/signup";
@@ -31,6 +32,7 @@ function AppRouter() {
           <Route path="tform" element={<Trainerform />} />
           <Route path="tlist" element={<Trainerlist />} />
           <Route path="profile/:id" element={<StudentProfile />} />
+          <Route path="loginn" element={<Loginn />} />
         </Routes>
       </Router>
     </>
